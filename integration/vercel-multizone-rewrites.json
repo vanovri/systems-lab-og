@@ -1,0 +1,114 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/labs",
+      "destination": "https://systems-lab-workbench.vercel.app/labs"
+    },
+    {
+      "source": "/labs/opengraph-image",
+      "destination": "https://systems-lab-workbench.vercel.app/labs/opengraph-image"
+    },
+    {
+      "source": "/labs/twitter-image",
+      "destination": "https://systems-lab-workbench.vercel.app/labs/twitter-image"
+    },
+    {
+      "source": "/api/og/labs",
+      "destination": "https://systems-lab-workbench.vercel.app/api/og/labs"
+    },
+    {
+      "source": "/labs/vectradb",
+      "destination": "https://vectradb-studio.vercel.app/labs/vectradb/index.html"
+    },
+    {
+      "source": "/labs/vectradb/:path*",
+      "destination": "https://vectradb-studio.vercel.app/labs/vectradb/:path*"
+    },
+    {
+      "source": "/labs/kronos",
+      "destination": "https://kronos-studio.vercel.app/labs/kronos/index.html"
+    },
+    {
+      "source": "/labs/kronos/:path*",
+      "destination": "https://kronos-studio.vercel.app/labs/kronos/:path*"
+    },
+    {
+      "source": "/labs/aegis",
+      "destination": "https://aegis-studio.vercel.app/labs/aegis/index.html"
+    },
+    {
+      "source": "/labs/aegis/:path*",
+      "destination": "https://aegis-studio.vercel.app/labs/aegis/:path*"
+    },
+    {
+      "source": "/labs/novaserve",
+      "destination": "https://novaserve-studio.vercel.app/labs/novaserve/index.html"
+    },
+    {
+      "source": "/labs/novaserve/:path*",
+      "destination": "https://novaserve-studio.vercel.app/labs/novaserve/:path*"
+    },
+    {
+      "source": "/labs/spectre",
+      "destination": "https://spectre-studio.vercel.app/labs/spectre/index.html"
+    },
+    {
+      "source": "/labs/spectre/:path*",
+      "destination": "https://spectre-studio.vercel.app/labs/spectre/:path*"
+    },
+    {
+      "source": "/labs/dst-kv",
+      "destination": "https://dst-kv-studio.vercel.app/labs/dst-kv/index.html"
+    },
+    {
+      "source": "/labs/dst-kv/:path*",
+      "destination": "https://dst-kv-studio.vercel.app/labs/dst-kv/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/labs(.*)",
+      "headers": [
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "credentialless"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://ardhyanovri.my.id; font-src 'self'; connect-src 'self' https://ardhyanovri.my.id; worker-src 'self' blob:; frame-ancestors 'none'; form-action 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+        }
+      ]
+    },
+    {
+      "source": "/labs/:slug/assets/:file*.wasm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/wasm"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/api/og/labs",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=3600, stale-while-revalidate=86400"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ]
+}

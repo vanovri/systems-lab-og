@@ -1,0 +1,28 @@
+{
+  "name": "systems-lab-og",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Two-Layer Satori Open Graph (next/og) Engine for /labs 6-Engine Multi-Zone Ecosystem (VectraDB, KronosLOB, AegisBox, NovaServe, SpectreMesh, DST-KV)",
+  "scripts": {
+    "dev": "next dev -H 127.0.0.1 -p 3099",
+    "build": "next build",
+    "start": "next start -H 127.0.0.1 -p 3099",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "npx tsx --test tests/og-contract.test.ts",
+    "verify:og": "node scripts/verify-og.mjs",
+    "export:static": "node scripts/export-static-og.mjs",
+    "sync:workbench": "node scripts/sync-to-workbench.mjs"
+  },
+  "dependencies": {
+    "next": "15.5.29",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "tsx": "^4.19.3",
+    "typescript": "5.7.3"
+  }
+}
